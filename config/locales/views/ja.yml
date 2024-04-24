@@ -66,6 +66,7 @@ ja:
     sessions:
       new:
         title: 'ログイン'
+  admin:
     schools:
       new:
         title: '学校を登録する'
