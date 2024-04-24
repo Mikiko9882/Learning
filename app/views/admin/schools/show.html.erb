@@ -13,6 +13,7 @@
     <%= link_to t('defaults.edit'), edit_admin_school_path(@school), class: 'btn btn-success' %>
     <%= button_to t('defaults.delete'), admin_school_path(@school), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
     <%= link_to '先生を追加する', new_admin_school_teacher_path(@school), class: 'btn btn-primary' %>
+    <%= link_to '学校一覧ページへ', admin_schools_path, class: 'btn btn-secondary' %>
   </div>
   <div class="row">
     <div class="col-md-12">
