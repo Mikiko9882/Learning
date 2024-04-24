@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Students::RegistrationsController < Devise::RegistrationsController
+  before_action :configure_permitted_parameters
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -38,7 +39,14 @@ class Students::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def configure_permitted_parameters
+    # sign_upの際に、name、grade_id、student_class_idを許可する
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :grade_id, :student_class_id, :school_id])
+    # account_updateの際に、name、grade_id、student_class_idを許可する
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :grade_id, :student_class_id, :school_id])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
