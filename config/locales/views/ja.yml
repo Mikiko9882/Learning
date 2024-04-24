@@ -104,7 +104,7 @@ ja:
         title: '点数編集'
       subject_achievement_rate:
         title: 'グラフで見る'
-  teacher:
+  teachers:
     sessions:
       new:
         title: 'ログイン'

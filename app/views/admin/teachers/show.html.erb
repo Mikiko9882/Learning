@@ -1,0 +1,21 @@
+<% content_for(:title, t('.title')) %>
+<div class="container d-flex flex-wrap justify-content-center justify-content-center pt-5">
+  <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 526px;">
+    <h1><%= t('.title') %></h1>
+    <div class="text-right mb-3">
+      <%= link_to t('defaults.edit'), edit_admin_school_teacher_path(@school, @teacher), class: 'btn btn-success' %>
+      <%= link_to t('defaults.back'), admin_school_path(@school), class: 'btn btn-secondary' %>
+    </div>
+
+    <table class="table table-bordered bg-white">
+      <tr>
+        <th scope="row"><%= Teacher.human_attribute_name(:name) %></th>
+        <td><%= @teacher.name %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= Teacher.human_attribute_name(:email) %></th>
+        <td><%= @teacher.email %></td>
+      </tr>
+    </table>
+  </div>
+</div>
