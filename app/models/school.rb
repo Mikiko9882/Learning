@@ -2,6 +2,7 @@ class School < ApplicationRecord
   before_validation :generate_unique_code, on: :create
 
   has_many :teachers, dependent: :destroy
+  has_many :students, dependent: :destroy
 
   validates :name, presence: true
   validates :address, presence: true

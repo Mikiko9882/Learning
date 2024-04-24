@@ -83,7 +83,7 @@ ja:
         title: '先生詳細'
       edit:
         title: '内容を編集'
-  student:
+  students:
     sessions:
       new:
         title: 'ログイン'
