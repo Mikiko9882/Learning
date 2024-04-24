@@ -48,6 +48,13 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 gem 'rails-i18n'
 
+gem 'devise'
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+gem 'pry-byebug'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
