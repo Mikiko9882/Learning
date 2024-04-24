@@ -62,11 +62,11 @@ ja:
       create:
         success: 'グループに追加しました'
         fail: 'グループに追加できませんでした'
+  admins:
+    sessions:
+      new:
+        title: 'ログイン'
   admin:
-    admins:
-      sessions:
-        new:
-          title: 'ログイン'
     schools:
       new:
         title: '学校を登録する'
