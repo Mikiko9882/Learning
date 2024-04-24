@@ -37,5 +37,17 @@ Rails.application.routes.draw do
                  controllers: { passwords: 'teachers/passwords',
                                 sessions: 'teachers/sessions' }
     end
+
+    # 生徒用画面
+    scope module: :student do
+      root to: 'static_pages#top', as: 'student_root'
+
+      devise_for :students,
+                 only: %i[session password registration confirmation],
+                 controllers: { passwords: 'students/passwords',
+                                sessions: 'students/sessions',
+                                registrations: 'students/registrations',
+                                confirmations: 'students/confirmations' }
+    end
   end
 end
