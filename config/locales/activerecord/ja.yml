@@ -8,8 +8,9 @@ ja:
       group: 'グループ'
       teacher: '先生' 
       student: '生徒'
+      admin: '管理者'
     attributes:
-      administrator:
+      admin:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         email: 'メールアドレス'
