@@ -48,6 +48,11 @@ Rails.application.routes.draw do
                                 sessions: 'students/sessions',
                                 registrations: 'students/registrations',
                                 confirmations: 'students/confirmations' }
+      resources :test_results, except: [:show] do
+        collection do
+          get :subject_achievement_rate
+        end
+      end
     end
   end
 end

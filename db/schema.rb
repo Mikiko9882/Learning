@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_24_093412) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_25_014410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_093412) do
 
   create_table "grades", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "max_scores", force: :cascade do |t|
+    t.integer "max_score", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,6 +75,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_093412) do
     t.index ["student_class_id"], name: "index_students_on_student_class_id"
   end
 
+  create_table "subjects", force: :cascade do |t|
+    t.string "subject_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teachers", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
@@ -84,8 +96,34 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_093412) do
     t.index ["school_id"], name: "index_teachers_on_school_id"
   end
 
+  create_table "test_names", force: :cascade do |t|
+    t.string "test_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_results", force: :cascade do |t|
+    t.bigint "student_id"
+    t.bigint "test_name_id"
+    t.bigint "subject_id"
+    t.bigint "max_score_id"
+    t.integer "score", null: false
+    t.integer "preparation_time_minutes", null: false
+    t.float "achievement_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["max_score_id"], name: "index_test_results_on_max_score_id"
+    t.index ["student_id"], name: "index_test_results_on_student_id"
+    t.index ["subject_id"], name: "index_test_results_on_subject_id"
+    t.index ["test_name_id"], name: "index_test_results_on_test_name_id"
+  end
+
   add_foreign_key "students", "grades"
   add_foreign_key "students", "schools"
   add_foreign_key "students", "student_classes"
   add_foreign_key "teachers", "schools"
+  add_foreign_key "test_results", "max_scores"
+  add_foreign_key "test_results", "students"
+  add_foreign_key "test_results", "subjects"
+  add_foreign_key "test_results", "test_names"
 end

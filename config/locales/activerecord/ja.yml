@@ -4,11 +4,12 @@ ja:
       test_result: 'テスト結果'
       school: '学校'
       grade: '学年'
-      user_class: 'クラス'
+      _class: 'クラス'
       group: 'グループ'
       teacher: '先生' 
       student: '生徒'
       admin: '管理者'
+      subject: '教科'
     attributes:
       admin:
         password: 'パスワード'
