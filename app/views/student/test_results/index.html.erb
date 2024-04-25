@@ -9,6 +9,9 @@
 <div class="container mt-4">
   <%= link_to '新しいテストを作成する', new_test_result_path, class: 'btn btn-primary' %>
 </div>
+<div class="container mt-4">
+  <%= link_to (t 'defaults.logout'), destroy_student_session_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
+</div>
 <!-- Breadcrumb -->
 <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb"></nav>
 <!-- Page content -->
