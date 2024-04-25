@@ -36,6 +36,8 @@ Rails.application.routes.draw do
                  only: %i[session password],
                  controllers: { passwords: 'teachers/passwords',
                                 sessions: 'teachers/sessions' }
+                                
+      resources :students, only: %i[index edit update show destroy]
     end
 
     # 生徒用画面

@@ -109,6 +109,7 @@ ja:
     sessions:
       new:
         title: 'ログイン'
+  teacher:
     students:
       index:
         title: '生徒一覧'
