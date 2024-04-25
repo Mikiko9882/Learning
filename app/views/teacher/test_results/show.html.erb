@@ -4,7 +4,7 @@
     <h1><%= t('.title') %></h1>
     <div class="text-right mb-3">
       <%= link_to t('defaults.edit'), edit_teacher_test_result_path(@test_result), class: 'btn btn-success' %>
-      <%= link_to t('defaults.delete'), teacher_test_result_path(@test_result), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+      <%= button_to t('defaults.delete'), teacher_test_result_path(@test_result), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
     </div>
     <table class="table table-bordered bg-white">
       <tr>
@@ -40,5 +40,6 @@
         <td><%= l @test_result.created_at, format: :long %></td>
       </tr>
     </table>
+    <%= link_to 'テスト一覧に戻る', teacher_test_results_path, class: 'btn btn-primary' %>
   </div>
 </div>
