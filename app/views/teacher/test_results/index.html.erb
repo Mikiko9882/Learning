@@ -1,0 +1,37 @@
+<% content_for(:title, t('.title')) %>
+<!-- Breadcrumb -->
+<nav class="container mt-lg-4 pt-5" aria-label="breadcrumb"></nav>
+<!-- Page content -->
+<section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+  <!-- Page title + Layout switcher + Search form -->
+  <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
+    <div class="col-lg-5 col-md-4">
+      <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col"><%= Student.human_attribute_name(:name) %></th>
+          <th scope="col"><%= Student.human_attribute_name(:grade_id) %></th>
+          <th scope="col"><%= Student.human_attribute_name(:student_class_id) %></th>
+          <th scope="col"><%= TestResult.human_attribute_name(:test_name_id) %></th>
+          <th scope="col"><%= TestResult.human_attribute_name(:subject_id) %></th>
+          <th scope="col"><%= TestResult.human_attribute_name(:created_at) %></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= render @test_results %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

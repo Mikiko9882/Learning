@@ -65,7 +65,7 @@ ja:
   admins:
     sessions:
       new:
-        title: 'ログイン'
+        title: '管理者用ログイン'
   admin:
     schools:
       new:
@@ -86,7 +86,7 @@ ja:
   students:
     sessions:
       new:
-        title: 'ログイン'
+        title: '生徒用ログイン'
     registrations:
       new:
         title: '新規登録'
@@ -108,7 +108,8 @@ ja:
   teachers:
     sessions:
       new:
-        title: 'ログイン'
+        title: '先生用ログイン'
+  teacher:
     students:
       index:
         title: '生徒一覧'

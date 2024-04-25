@@ -30,12 +30,19 @@ Rails.application.routes.draw do
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # 教師用画面
     namespace :teacher, path: 't' do
-      root to: 'tops#index', as: 'root'
+      root to: 'students#index', as: 'root'
 
       devise_for :teachers,
                  only: %i[session password],
                  controllers: { passwords: 'teachers/passwords',
                                 sessions: 'teachers/sessions' }
+                                
+      resources :students, only: %i[index edit update show destroy]
+      resources :test_results, only: %i[index edit update show destroy] do
+        collection do
+          get :subject_achievement_rate
+        end
+      end
     end
 
     # 生徒用画面
