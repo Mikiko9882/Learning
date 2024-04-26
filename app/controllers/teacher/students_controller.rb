@@ -2,7 +2,8 @@ class Teacher::StudentsController < Teacher::BaseController
   before_action :set_student, only: %i[edit update show destroy]
   
   def index
-    @students = current_teacher_teacher.school.students
+    @q = current_teacher_teacher.school.students.ransack(params[:q])
+    @students = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
   end
 
 

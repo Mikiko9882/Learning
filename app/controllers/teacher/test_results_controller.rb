@@ -2,7 +2,9 @@ class Teacher::TestResultsController < Teacher::BaseController
   before_action :find_test_result, only: [:edit, :update, :show, :destroy]
 
   def index
-    @test_results = TestResult.all
+    @students = current_teacher_teacher.school.students
+    @q = TestResult.where(student_id: @students.pluck(:id)).ransack(params[:q])
+    @test_results = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
   end
 
   def edit; end

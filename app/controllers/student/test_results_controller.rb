@@ -3,7 +3,8 @@ class Student::TestResultsController < Student::BaseController
   before_action :find_test_result, only: [:edit, :update, :destroy]
   
   def index
-    @test_results = current_student.test_results
+    @q = current_student.test_results.ransack(params[:q])
+    @test_results = @q.result.order(created_at: :desc).page(params[:page])
   end
   
   def new

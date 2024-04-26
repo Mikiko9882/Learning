@@ -2,7 +2,8 @@ class Admin::SchoolsController < Admin::BaseController
   before_action :set_school, only: [:show, :edit, :update, :destroy]
 
   def index
-    @schools = School.all
+    @q = School.ransack(params[:q])
+    @schools = @q.result(distinct: true).order(created_at: :asc)
   end
     
   # 新しい学校を作成するためのフォームを表示するアクション

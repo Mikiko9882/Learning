@@ -46,7 +46,11 @@ class TestResult < ApplicationRecord
     end
   end
 
-  def self.user_test_results(user)
-    where(user: user).pluck(:test_name, :achievement_rate)
+  def self.ransackable_attributes(auth_object = nil)
+    ["achievement_rate", "created_at", "id", "id_value", "max_score_id", "preparation_time_minutes", "score", "student_id", "subject_id", "test_name_id", "updated_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["max_score", "student", "subject", "test_name"]
   end
 end

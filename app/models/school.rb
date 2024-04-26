@@ -18,4 +18,8 @@ class School < ApplicationRecord
       break unless School.exists?(code: code)
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["address", "code", "created_at", "email", "id", "id_value", "name", "phone_number", "updated_at", "website"]
+  end
 end
