@@ -2,7 +2,7 @@ class Teacher::StudentsController < Teacher::BaseController
   before_action :set_student, only: %i[edit update show destroy]
   
   def index
-    @students = current_teacher_teacher.school.students
+    @students = current_teacher_teacher.school.students.order(created_at: :desc).page(params[:page])
   end
 
 
