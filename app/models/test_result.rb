@@ -7,6 +7,8 @@ class TestResult < ApplicationRecord
   before_save :calculate_achievement_rate
 
   validate :achievement_rate_within_range
+  validates :score, presence: true
+  validates :preparation_time_minutes, presence: true
 
   def display_preparation_time
     hours = preparation_time_minutes / 60

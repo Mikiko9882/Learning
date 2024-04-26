@@ -13,7 +13,12 @@
 
   <body>
     <main class="page-wrapper">
-      <%= render 'shared/header' %>
+      <% if current_teacher_teacher %>
+        <%= render 'shared/teacher_header' %>
+      <% else %>
+        <%= render 'shared/header' %>
+      <% end %>
+      
       <%= render 'shared/flash_message' %>
       <%= yield %>
     </main>

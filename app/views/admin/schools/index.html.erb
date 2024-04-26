@@ -8,11 +8,6 @@
     <div class="col-lg-5 col-md-4">
       <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
     </div>
-    <div class="col-lg-7 col-md-8">
-      <%= link_to '学校を登録する', new_admin_school_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
-      <!-- ログアウトリンク -->
-      <%= link_to (t 'defaults.logout'), destroy_admin_admin_session_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
-    </div>
   </div>
   <div class="row">
     <div class="col-md-12">
