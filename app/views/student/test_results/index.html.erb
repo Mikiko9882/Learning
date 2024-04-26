@@ -14,6 +14,25 @@
     <div class="col-lg-5 col-md-4">
       <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
     </div>
+    <div class="col-lg-7 col-md-8">
+      <%= search_form_for @q, url: test_results_path, html: { class: "row align-items-end" } do |f| %>
+        <div class="col-lg-5 col-sm-6 mb-2">
+          <div class="input-group">
+            <%= f.select :test_name_id_eq, TestName.all.map{|tn| [tn.test_name, tn.id]}, { include_blank: 'テスト名で検索' }, { class: 'form-select' } %>
+          </div>
+        </div>
+        <div class="col-lg-5 col-sm-6 mb-2">
+          <div class="input-group">
+            <%= f.select :subject_id_eq, Subject.all.map{|s| [s.subject_name, s.id]}, { include_blank: '教科名で検索' }, { class: 'form-select' } %>
+          </div>
+        </div>
+        <div class="col-lg-2 col-sm-12">
+          <div class="input-group">
+            <%= f.submit "検索", class: 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
     <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
       <% @test_results.each do |test_result| %>

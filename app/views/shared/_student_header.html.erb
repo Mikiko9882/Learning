@@ -17,6 +17,7 @@
           テストを登録する
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><%= link_to 'テスト一覧', test_results_path, class: 'dropdown-item' %></li>
           <li><%= link_to 'テストを作成する', new_test_result_path, class: 'dropdown-item' %></li>
           <li><%= link_to 'グラフで見る', subject_achievement_rate_test_results_path, class: 'dropdown-item' %></li>
         </ul>
