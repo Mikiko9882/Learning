@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_25_014410) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_27_124214) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,7 +58,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_25_014410) do
 
   create_table "students", force: :cascade do |t|
     t.string "name"
-    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -68,11 +67,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_25_014410) do
     t.bigint "school_id"
     t.bigint "grade_id"
     t.bigint "student_class_id"
-    t.index ["email"], name: "index_students_on_email", unique: true
+    t.string "student_number"
     t.index ["grade_id"], name: "index_students_on_grade_id"
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
     t.index ["school_id"], name: "index_students_on_school_id"
     t.index ["student_class_id"], name: "index_students_on_student_class_id"
+    t.index ["student_number"], name: "index_students_on_student_number", unique: true
   end
 
   create_table "subjects", force: :cascade do |t|

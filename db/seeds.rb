@@ -49,20 +49,7 @@ StudentClass.find_or_create_by!(name: "8組")
 StudentClass.find_or_create_by!(name: "9組")
 StudentClass.find_or_create_by!(name: "10組")
 
-#ダミーuser
-grades = Grade.all
-student_classes = StudentClass.all
 
-20.times do
-  Student.create!(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: '12345678', # パスワードはダミーの値を設定してください
-    school_id: School.pluck(:id).sample, # 学校のIDは存在するIDからランダムに選択してください
-    grade: grades.sample,
-    student_class: student_classes.sample
-  )
-end
 
 #教科名
 Subject.find_or_create_by!(subject_name: "国語")
@@ -84,18 +71,4 @@ MaxScore.find_or_create_by(max_score: '20')
 MaxScore.find_or_create_by(max_score: '10')
 MaxScore.find_or_create_by(max_score: '5')
 
-test_names = TestName.all
-max_score_value = 100
-subjects = Subject.all
 
-max_score = MaxScore.find_or_create_by(max_score: max_score_value)
-30.times do |index|
-  TestResult.create!(
-    student_id: Student.pluck(:id).sample,
-    test_name: test_names.sample,
-    max_score: max_score,
-    score: rand(max_score_value + 1),
-    subject: subjects.sample,
-    preparation_time_minutes: rand(300),
-  )
-end
