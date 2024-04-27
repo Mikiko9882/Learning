@@ -24,16 +24,6 @@ Admin.create!(
   )
 end
 
-20.times do
-  Teacher.create!(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: '12345678', # 仮のパスワード
-    school_id: School.pluck(:id).sample, # 学校のIDは存在するIDからランダムに選択してください
-  )
-end
-
-
 Grade.find_or_create_by!(name: "1年")
 Grade.find_or_create_by!(name: "2年")
 Grade.find_or_create_by!(name: "3年")
