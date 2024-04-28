@@ -48,6 +48,6 @@ class Admin::TeachersController < Admin::BaseController
 
   # Only allow a list of trusted parameters through.
   def teacher_params
-    params.require(:teacher).permit(:name, :email, :password, :password_confirmation)
+    params.require(:teacher).permit(:login_id, :name, :email, :password, :password_confirmation)
   end
 end

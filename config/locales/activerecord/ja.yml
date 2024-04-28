@@ -22,13 +22,13 @@ ja:
         email: 'メールアドレス'
         website: 'ウェブサイト'
       teacher:
+        login_id: '先生ID'
         name: '名前'
-        email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
       student:
+        student_number: '学生ID'
         name: '名前'
-        email: 'メールアドレス'
         grade_id: '学年'
         student_class_id: 'クラス'
         school_id: '学校名'

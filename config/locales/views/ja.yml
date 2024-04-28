@@ -66,6 +66,9 @@ ja:
     sessions:
       new:
         title: '管理者用ログイン'
+    passwords:
+      new:
+        title: 'パスワードリセットをする'
   admin:
     schools:
       new:
